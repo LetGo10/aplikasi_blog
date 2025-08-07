@@ -8,16 +8,8 @@ Route::get('/', function () {
 
 Route::get('/main', function () {
     return view('/main');
-});
+})->name('main');
 
-Route::get('/destinasi', function () {
-    return view('/destinasi');
-});
-
-Route::get('/hubungi', function () {
-    return view('/hubungi');
-});
-
-Route::get('/about_us', function () {
-    return view('/about_us');
-});
+Route::get('/about', function () {
+    return view('/about');
+})->name('about');

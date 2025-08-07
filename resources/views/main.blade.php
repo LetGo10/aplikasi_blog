@@ -1,26 +1,6 @@
-<!DOCTYPE html>
-<html lang="ms">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Air Terjun di Selangor</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-white text-gray-900">
+@extends('layouts.app')
 
-    <!-- Header -->
-    <header class="bg-green-600 shadow">
-      <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-        <a href="#" class="text-xl font-bold text-white">JelajahSelangor</a>
-        <nav class="space-x-4">
-          <a href="{{ url('main') }}" class="text-white hover:underline">Laman Utama</a>
-          <a href="{{ url('about_us') }}" class="text-white hover:underline">Tentang Kami</a>
-          <a href="#" class="bg-white text-green-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-green-100 transition">Login</a>
-        </nav>
-      </div>
-    </header>
-
-    <!-- Blog Section -->
+@section('content')
     <section class="bg-white py-24 sm:py-32">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:mx-0">
@@ -32,7 +12,7 @@
 
           <!-- Artikel 1 -->
           <article class="flex max-w-xl flex-col items-start justify-between">
-            <img src="{{ asset('kanching.jpg') }}" alt="Air Terjun Kanching" class="rounded-lg w-full h-48 object-cover mb-4" />
+            <img src="{{ asset('img/kanching.jpg') }}" alt="Air Terjun Kanching" class="rounded-lg w-full h-48 object-cover mb-4" />
             <div class="flex items-center gap-x-4 text-xs">
               <time datetime="2025-08-01" class="text-gray-500">1 Ogos 2025</time>
               <span class="bg-green-100 text-green-700 px-3 py-1.5 rounded-full text-xs font-medium">Alam Semula Jadi</span>
@@ -47,7 +27,7 @@
 
             <!-- Bahagian Blogger -->
             <div class="relative mt-8 flex items-center gap-x-4 justify-self-end">
-                <img src="{{ asset('3.png') }}" alt="Wani" class="size-10 rounded-full bg-gray-50" />
+                <img src="{{ asset('img/3.png') }}" alt="Wani" class="size-10 rounded-full bg-gray-50" />
                 <div class="text-sm/6">
                 <p class="font-semibold text-gray-900">
                     <a href="#">
@@ -62,7 +42,7 @@
 
           <!-- Artikel 2 -->
           <article class="flex max-w-xl flex-col items-start justify-between">
-            <img src="{{ asset('pisang.jpg') }}" alt="Air Terjun Kanching" class="w-full h-48 object-cover rounded-lg mb-4" />
+            <img src="{{ asset('img/pisang.jpg') }}" alt="Air Terjun Kanching" class="w-full h-48 object-cover rounded-lg mb-4" />
             <div class="flex items-center gap-x-4 text-xs">
               <time datetime="2025-07-25" class="text-gray-500">25 Julai 2025</time>
               <span class="bg-green-100 text-green-700 px-3 py-1.5 rounded-full text-xs font-medium">Rekreasi</span>
@@ -77,7 +57,7 @@
 
             <!-- Bahagian Blogger -->
             <div class="relative mt-8 flex items-center gap-x-4 justify-self-end">
-                <img src="{{ asset('2.png') }}" alt="Wani" class="size-10 rounded-full bg-gray-50" />
+                <img src="{{ asset('img/2.png') }}" alt="Wani" class="size-10 rounded-full bg-gray-50" />
                 <div class="text-sm/6">
                 <p class="font-semibold text-gray-900">
                     <a href="#">
@@ -92,7 +72,7 @@
 
           <!-- Artikel 3 -->
           <article class="flex max-w-xl flex-col items-start justify-between">
-            <img src="{{ asset('lata.jpg') }}" alt="Lata Medang" class="rounded-lg w-full h-48 object-cover mb-4" />
+            <img src="{{ asset('img/lata.jpg') }}" alt="Lata Medang" class="rounded-lg w-full h-48 object-cover mb-4" />
             <div class="flex items-center gap-x-4 text-xs">
               <time datetime="2025-07-10" class="text-gray-500">10 Julai 2025</time>
               <span class="bg-green-100 text-green-700 px-3 py-1.5 rounded-full text-xs font-medium">Perkhemahan</span>
@@ -107,7 +87,7 @@
 
             <!-- Bahagian Blogger -->
             <div class="relative mt-8 flex items-center gap-x-4 justify-self-end">
-                <img src="{{ asset('1.png') }}" alt="Wani" class="size-10 rounded-full bg-gray-50" />
+                <img src="{{ asset('img/1.png') }}" alt="Wani" class="size-10 rounded-full bg-gray-50" />
                 <div class="text-sm/6">
                 <p class="font-semibold text-gray-900">
                     <a href="#">
@@ -123,20 +103,4 @@
         </div>
       </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="bg-green-700 text-white">
-      <div class="mx-auto max-w-7xl px-6 py-10 lg:px-8">
-        <div class="flex flex-col sm:flex-row justify-between items-center text-sm">
-          <p>&copy; 2025 JelajahSelangor. Hak cipta terpelihara.</p>
-          <div class="flex space-x-4 mt-4 sm:mt-0">
-            <a href="#" class="hover:underline">Youtube</a>
-            <a href="#" class="hover:underline">Instagram</a>
-            <a href="#" class="hover:underline">Twitter</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-  </body>
-</html>
+@endsection
