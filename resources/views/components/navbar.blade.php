@@ -4,7 +4,11 @@
     <nav class="space-x-4">
         <a href="{{ route('main') }}" class="text-white hover:underline {{ request()->routeIs('main') ? 'font-bold underline' : '' }}">Laman Utama</a>
         <a href="{{ route('about') }}" class="text-white hover:underline {{ request()->routeIs('about') ? 'font-bold underline' : '' }}">Tentang Kami</a>
+<<<<<<< HEAD
         <a href="{{ route('posts.index') }}" class="text-white hover:underline {{ request()->routeIs('posts.index') ? 'font-bold underline' : '' }}">Destinasi</a>
+=======
+        <a href="{{ route('posts') }}" class="text-white hover:underline {{ request()->routeIs('posts') ? 'font-bold underline' : '' }}">Destinasi</a>
+>>>>>>> 31ba5189d61a440d589817990fea6f152079cc71
         <a href="{{ route('contact') }}" class="text-white hover:underline {{ request()->routeIs('contact') ? 'font-bold underline' : '' }}">Hubungi Kami</a>
         <a href="#" class="bg-white text-green-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-green-100 transition">Login</a>
     </nav>

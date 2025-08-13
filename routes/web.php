@@ -10,6 +10,7 @@ Route::get('/main', function () {
     return view('main');
 })->name('main');
 
+<<<<<<< HEAD
 /*Route::get('/about', function () {
     return view('about');
 })->name('about');*/
@@ -26,4 +27,16 @@ Route::get('/posts/{id}', [\App\Http\Controllers\PostController::class, 'edit'])
 
 Route::get('/contact', function () {
     return view('contact');
+=======
+Route::get('/about', function () {
+    return view('/about');
+})->name('about');
+
+Route::get('/posts', function () {
+    return view('/posts');
+})->name('posts');
+
+Route::get('/contact', function () {
+    return view('/contact');
+>>>>>>> 31ba5189d61a440d589817990fea6f152079cc71
 })->name('contact');
