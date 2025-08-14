@@ -41,4 +41,14 @@ class Post extends Model
             ]
         ];
     }*/
+
+    protected $fillable = [
+        'title',
+        'slug',
+        'content',
+        'author',
+        'author_info',
+        'image',
+        'category',
+    ];
 }

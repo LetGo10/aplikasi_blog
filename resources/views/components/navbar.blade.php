@@ -6,6 +6,7 @@
         <a href="{{ route('about') }}" class="text-white hover:underline {{ request()->routeIs('about') ? 'font-bold underline' : '' }}">Tentang Kami</a>
         <a href="{{ route('posts.index') }}" class="text-white hover:underline {{ request()->routeIs('posts.index') ? 'font-bold underline' : '' }}">Destinasi</a>
         <a href="{{ route('contact') }}" class="text-white hover:underline {{ request()->routeIs('contact') ? 'font-bold underline' : '' }}">Hubungi Kami</a>
+        <a href="{{ route('posts.create') }}" class="text-white hover:underline {{ request()->routeIs('posts.create') ? 'font-bold underline' : '' }}">New Post</a>
         <a href="#" class="bg-white text-green-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-green-100 transition">Login</a>
     </nav>
     </div>

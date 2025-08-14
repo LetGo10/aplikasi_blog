@@ -22,7 +22,7 @@
                             {{ $post['title'] }}
                         </h3>
                         <p class="mt-3 text-sm text-gray-600">{{ $post['content'] }}</p>
-                        <a href="{{ route('posts.edit', $post['id']) }}" class="mt-4 inline-block text-sm font-medium text-green-700 hover:underline">Lihat Penuh →</a>
+                        <a href="{{ route('posts.show', $post['slug']) }}" class="mt-4 inline-block text-sm font-medium text-green-700 hover:underline">Lihat Penuh →</a>
                     </div>
 
                     <!-- Bahagian Blogger -->
