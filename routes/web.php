@@ -30,11 +30,20 @@ Route::get('/posts/{slug}', [\App\Http\Controllers\PostController::class, 'show'
 Route::get('/posts/{slug}/edit', [\App\Http\Controllers\PostController::class, 'edit'])->name('posts.edit');
 
 Route::post('/posts/store', [\App\Http\Controllers\PostController::class, 'store'])->name('posts.store');
-Route::post('/posts/{slug}/update', [\App\Http\Controllers\PostController::class, 'update'])->name('posts.update');
+Route::put('/posts/{slug}/update', [\App\Http\Controllers\PostController::class, 'update'])->name('posts.update');
 
 Route::delete('posts/{slug}', [
     \App\Http\Controllers\PostController::class,
     'destroy'
 ])->name('posts.destroy');
 
-Route::post('/comments', [\App\Http\Controllers\CommentController::class, 'store'])->name('comments.store');
+Route::post('posts/{slug}/comments', [
+    \App\Http\Controllers\CommentController::class,
+    'store'
+])->name('comments.store');
+
+Route::delete('comments/{id}', [
+    \App\Http\Controllers\CommentController::class,
+    'destroy'
+])->name('comments.destroy');
+

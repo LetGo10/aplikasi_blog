@@ -16,7 +16,6 @@
             </div>
 
             <div class="flex flex-wrap gap-10">
-
                 @foreach($posts as $post)
                 <article class="flex max-w-xl flex-col items-start justify-between">
                     <img src="{{ asset('img/kanching.jpg') }}" alt="Air Terjun Kanching" class="rounded-lg w-full h-48 object-cover mb-4" />

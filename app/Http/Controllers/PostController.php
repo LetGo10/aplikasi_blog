@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-public function index()
+    public function index()
     {
-        $posts = \App\Models\Post::all();
+        $posts = Post::with('user')->orderBy('created_at', 'desc')->get();
         return view('posts.index', [
             'posts' => $posts
         ]);
@@ -17,14 +18,16 @@ public function index()
 
     public function create()
     {
-        return view('posts.create');
+        $users = User::all();
+        return view('posts.create', compact('users'));
     }
 
     public function show($slug)
     {
-        $posts = Post::where('slug', $slug)->firstOrFail();
+
+        $post = Post::with(['user', 'comments'])->where('slug', $slug)->firstOrFail();
         return view('posts.show', [
-            'posts' => $posts
+            'posts' => $post
         ]);
     }
 
@@ -38,9 +41,11 @@ public function index()
 
     public function edit($slug)
     {
-        $posts = Post::where('slug', $slug)->firstOrFail();
+        $post = Post::where('slug', $slug)->firstOrFail();
+        $users = User::all();
         return view('posts.edit', [
-            'post' => $posts
+            'post' => $post,
+            'users' => $users
         ]);
     }
 
@@ -52,8 +57,9 @@ public function index()
             'slug' => 'required|string|max:255',
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'author' => 'required|string|max:100',
-            'author_info' => 'nullable|string|max:255',
+            //'author' => 'required|string|max:100',
+            //'author_info' => 'nullable|string|max:255',
+            'user_id' => 'nullable|exists:users,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'category' => 'nullable|string|max:100',
         ]);
@@ -64,18 +70,19 @@ public function index()
 
     public function update(Request $request, $slug)
     {
+        $post = Post::where('slug', $slug)->firstOrFail();
         //Input Validation
         $validatedData = $request->validate([
             'slug' => 'required|string|max:255',
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'author' => 'required|string|max:100',
-            'author_info' => 'nullable|string|max:255',
+            //'author' => 'required|string|max:100',
+            //'author_info' => 'nullable|string|max:255',
+            'user_id' => 'nullable|exists:users,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'category' => 'nullable|string|max:100',
         ]);
 
-        $post = Post::where('slug', $slug)->firstOrFail();
         $post->update($validatedData);
         return back()->with('success','Post updated successfully');
     }
