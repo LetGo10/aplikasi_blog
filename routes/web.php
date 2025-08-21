@@ -31,3 +31,10 @@ Route::get('/posts/{slug}/edit', [\App\Http\Controllers\PostController::class, '
 
 Route::post('/posts/store', [\App\Http\Controllers\PostController::class, 'store'])->name('posts.store');
 Route::post('/posts/{slug}/update', [\App\Http\Controllers\PostController::class, 'update'])->name('posts.update');
+
+Route::delete('posts/{slug}', [
+    \App\Http\Controllers\PostController::class,
+    'destroy'
+])->name('posts.destroy');
+
+Route::post('/comments', [\App\Http\Controllers\CommentController::class, 'store'])->name('comments.store');

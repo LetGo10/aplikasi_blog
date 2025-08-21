@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index()
+public function index()
     {
         $posts = \App\Models\Post::all();
         return view('posts.index', [
@@ -64,8 +64,6 @@ class PostController extends Controller
 
     public function update(Request $request, $slug)
     {
-        $post = Post::where('slug', $slug)->firstOrFail();
-
         //Input Validation
         $validatedData = $request->validate([
             'slug' => 'required|string|max:255',
@@ -77,7 +75,16 @@ class PostController extends Controller
             'category' => 'nullable|string|max:100',
         ]);
 
+        $post = Post::where('slug', $slug)->firstOrFail();
         $post->update($validatedData);
         return back()->with('success','Post updated successfully');
+    }
+
+    public function destroy($slug)
+    {
+        $post = Post::where('slug', $slug)->firstOrFail();
+        $post->delete();
+
+        return redirect()->route('posts.index')->with('success', 'Post deleted successfully!');
     }
 }

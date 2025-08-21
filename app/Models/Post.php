@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Comment;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -51,4 +52,9 @@ class Post extends Model
         'image',
         'category',
     ];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

@@ -3,6 +3,13 @@
 @section('content')
     <section class="bg-green-50 py-20" id="destinasi">
         <div class="max-w-7xl mx-auto px-6">
+
+            @if(session('success'))
+                <div class="mb-6 px-4 py-3 rounded-lg bg-green-100 text-green-800">
+                    {{ session('success') }}
+                </div>
+            @endif
+
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold text-green-800">Destinasi Menarik</h2>
                 <p class="mt-2 text-gray-700">Senarai air terjun popular yang wajib anda lawati di Selangor.</p>
