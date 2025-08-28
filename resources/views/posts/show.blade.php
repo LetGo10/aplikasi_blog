@@ -47,7 +47,7 @@
     </header>
 
     <!-- Article Image -->
-    <img src="{{ asset('img/' . $posts->image) }}" class="rounded-lg w-full h-[400px] object-cover shadow-lg mb-12">
+    <img src="{{ $posts->image }}" class="rounded-lg w-full h-[400px] object-cover shadow-lg mb-12">
 
     <!-- Article Content -->
     <article class="prose prose-lg max-w-none">
@@ -67,12 +67,12 @@
 
             <div class="flex items-center space-x-3">
                 <a href="{{ route('posts.index') }}"
-                   class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition">
+                   class="inline-flex items-center px-4 py-2 border text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition">
                     Back to Posts
                 </a>
 
                 <a href="{{ route('posts.edit', $posts['slug']) }}"
-                   class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition">
+                   class="inline-flex items-center px-4 py-2 border text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition">
                     Edit Post
                 </a>
 
@@ -127,7 +127,7 @@
                                 id="author_name"
                                 name="author_name"
                                 value="{{ old('author_name') }}"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('author_name') border-red-500 @enderror"
+                                class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('author_name') border-red-500 @enderror"
                                 required>
                         @error('author_name')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -139,7 +139,7 @@
                                 id="author_email"
                                 name="author_email"
                                 value="{{ old('author_email') }}"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('author_email') border-red-500 @enderror"
+                                class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('author_email') border-red-500 @enderror"
                                 required>
                         @error('author_email')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -150,7 +150,7 @@
                 <div>
                     <label for="content" class="block text-sm font-medium text-gray-700 mb-2">Comment *</label>
                     <textarea id="content" name="content" rows="4"
-                              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 @error('content') border-red-500 @enderror"
+                              class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-600 @error('content') border-red-500 @enderror"
                               placeholder="Write your comment here..." required>{{ old('content') }}</textarea>
                     @error('content')
                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>

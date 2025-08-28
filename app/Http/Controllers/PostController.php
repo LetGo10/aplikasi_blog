@@ -94,12 +94,13 @@ class PostController extends Controller
             //'author' => 'required|string|max:100',
             //'author_info' => 'nullable|string|max:255',
             'user_id' => 'nullable|exists:users,id',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|string',
             'category' => 'nullable|string|max:100',
         ]);
 
         $post->update($validatedData);
         return back()->with('success','Post updated successfully');
+        //return redirect()->with('success','Post updated successfully');
     }
 
     public function destroy($slug)

@@ -48,7 +48,35 @@ Route::delete('comments/{id}', [
     'destroy'
 ])->name('comments.destroy');
 
-Route::get('admin/dashboard', [
-    DashboardController::class,
-    'index'
-])->name('admin.dashboard.index');
+Route::middleware('auth')->group(function() {
+    Route::get('admin/dashboard', [
+        \App\Http\Controllers\DashboardController::class,
+        'index'
+    ])->name('admin.dashboard.index');
+});
+
+Route::get('login', [
+    \App\Http\Controllers\AuthController::class,
+    'showLogin'
+])->name('login');
+
+Route::get('register', [
+    \App\Http\Controllers\AuthController::class,
+    'showRegister'
+])->name('register');
+
+Route::post('login', [
+    \App\Http\Controllers\LoginController::class,
+    'login'
+])->name('login');
+
+Route::post('register', [
+    \App\Http\Controllers\AuthController::class,
+    'register'
+])->name('register.post');
+
+Route::post('logout', [
+    \App\Http\Controllers\AuthController::class,
+    'logout'
+])->name('logout');
+

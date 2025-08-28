@@ -52,7 +52,7 @@
             <div class="flex flex-wrap gap-10">
                 @foreach($posts as $post)
                 <article class="flex max-w-xl flex-col items-start justify-between">
-                    <img src="{{ asset('img/kanching.jpg') }}" alt="Air Terjun Kanching" class="rounded-lg w-full h-48 object-cover mb-4" />
+                    <img src="{{ $post['image'] }}" class="rounded-lg w-full h-48 object-cover mb-4" />
                     <div class="flex items-center gap-x-4 text-xs">
                         <time datetime="2025-08-01" class="text-gray-500">{{ \Carbon\Carbon::parse($post['created_at'])->format('j M Y') }}</time>
                         <span class="bg-green-100 text-green-700 px-3 py-1.5 rounded-full text-xs font-medium">Alam Semula Jadi</span>
